@@ -16,7 +16,7 @@ It programmatically retrieves:
 🔗 [https://delhihighcourt.nic.in/app/get-case-type-status](https://delhihighcourt.nic.in/app/get-case-type-status)
 
 ---
-
+---
 ## ⚙️ Setup Steps
 
 Follow these steps to run the this project locally:
@@ -25,13 +25,13 @@ Follow these steps to run the this project locally:
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/Court-Data-Fetcher-Mini-Dashboard.git
+   git clone https://github.com/your-username/Court-Data-Fetcher-Mini-Dashboard.git
 cd Court-Data-Fetcher-Mini-Dashboard/court_data_fetcher
+   ```
 
 
 
-
-
+---
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
