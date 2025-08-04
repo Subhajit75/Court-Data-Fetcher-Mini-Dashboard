@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 #from scraper import fetch_case_details
 from court_data_fetcher.scraper import fetch_case_details
 
-import config
+from court_data_fetcher import config
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = config.SECRET_KEY
