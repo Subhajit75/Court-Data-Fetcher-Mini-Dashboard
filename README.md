@@ -174,6 +174,7 @@ Court-Data-Fetcher-Mini-Dashboard/
 ├── court_data_fetcher/
 │ ├── static/
 │ │ ├──images/
+│ │ │ ├──Court-Data Fetcher & Mini-Dashboard.gif 
 │ │ │ ├──ui_home.png #User Interface
 │ │ │ └──ui_result.png #Result Interface
 │ │ └── style.css # Custom styling
