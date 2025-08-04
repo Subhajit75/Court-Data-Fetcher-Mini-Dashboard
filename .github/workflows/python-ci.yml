@@ -27,5 +27,5 @@ jobs:
 
     - name: Run unit tests
       run: |
-        cd court_data_fetcher
-        pytest tests/ --maxfail=1 --disable-warnings -q
+        cd Court-Data-Fetcher-Mini-Dashboard/court_data_fetcher
+        pytest tests --maxfail=1 --disable-warnings -q
