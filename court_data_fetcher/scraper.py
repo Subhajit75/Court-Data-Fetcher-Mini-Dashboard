@@ -17,10 +17,10 @@ BASE_URL = "https://delhihighcourt.nic.in/"
 # --------------------- Database Configuration ---------------------
 # MySQL Configuration
 DB_CONFIG = {
-    "host": "",
-    "user": "",
-    "password": "",
-    "database": ""
+    "host": "DB_HOST",
+    "user": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME"
 }
 
 app = Flask(__name__)
