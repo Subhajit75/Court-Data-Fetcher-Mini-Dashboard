@@ -1,11 +1,11 @@
-# 🏛️ Delhi High Court Case Status Fetcher
+# 🏛️ Court-Data Fetcher & Mini-Dashboard
 
-A Python + Flask-based web application to **fetch Delhi High Court case details** automatically.  
+A Python + Flask-based web application to fetch **Court-Data Fetcher & Mini-Dashboard** (Delhi High Court case details).  
 It programmatically retrieves:
 
 - 👥 **Parties’ Names**  
 - 📅 **Filing Date & Next Hearing Date**  
-- 📄 **Most Recent Order/Judgment PDF Link**  
+- 📄 **Order/Judgment PDF Link**  
 - 💾 **Stores query history & raw HTML in MySQL database**  
 
 ---
@@ -17,16 +17,27 @@ It programmatically retrieves:
 
 ---
 
-## ✨ Features
-
-- Automated form filling with **Selenium WebDriver**  
-- **Numeric CAPTCHA** auto-handling (programmatically fetched)  
-- Fetches **most recent order PDF** from Orders page  
-- Saves all queries in **MySQL database**  
-- Simple **Flask web interface**  
-- Deployment-ready with `Dockerfile` and `requirements.txt`  
-
----
 
 ## 📂 File Structure
+~~~
+Court-Data-Fetcher-Mini-Dashboard/
+│
+├── court_data_fetcher/
+│ ├── static/
+│ │ └── style.css # Custom styling
+│ │
+│ ├── templates/
+│ │ ├── index.html # Input form (Case Type, Number, Year)
+│ │ └── result.html # Result display page
+│ │
+│ ├── app.py # Flask main app
+│ ├── scraper.py # Core Selenium scraping logic
+│ ├── db.py # MySQL connection helper
+│ ├── config.py # DB credentials & app config
+│ ├── requirements.txt # Python dependencies
+│ └── Dockerfile # Optional containerization
+│
+├── LICENSE # MIT License
 
+~~~
+└── README.md # Project Documentation
