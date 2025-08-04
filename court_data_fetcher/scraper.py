@@ -11,15 +11,16 @@ from datetime import datetime
 import time
 from flask import Flask, render_template, request
 from urllib.parse import urljoin
+import os
 
 BASE_URL = "https://delhihighcourt.nic.in/"
 
-# MySQL Configuration
+# MySQL Configuration - Updated for Render
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "subhajit",
-    "database": "court_data"
+    "host": os.getenv('DB_HOST', 'localhost'),
+    "user": os.getenv('DB_USER', 'root'),
+    "password": os.getenv('DB_PASSWORD', ''),
+    "database": os.getenv('DB_NAME', 'court_data')
 }
 
 app = Flask(__name__)
@@ -32,6 +33,16 @@ def save_query(case_type, case_number, filing_year, raw_response):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         cursor.execute("""
+            CREATE TABLE IF NOT EXISTS queries (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                case_type VARCHAR(50),
+                case_number VARCHAR(50),
+                filing_year VARCHAR(4),
+                timestamp DATETIME,
+                raw_response LONGTEXT
+            )
+        """)
+        cursor.execute("""
             INSERT INTO queries (case_type, case_number, filing_year, timestamp, raw_response)
             VALUES (%s, %s, %s, %s, %s)
         """, (case_type, case_number, filing_year, timestamp, raw_response))
@@ -39,23 +50,33 @@ def save_query(case_type, case_number, filing_year, raw_response):
         conn.commit()
         cursor.close()
         conn.close()
-        print(" Query log saved to MySQL.")
+        print("✅ Query log saved to MySQL.")
     except Exception as e:
-        print(" MySQL Insert Error:", e)
+        print("❌ MySQL Insert Error:", e)
 
 def fetch_case_details(case_type, case_number, filing_year):
     """Fetch case details including most recent PDF from Delhi High Court website"""
     options = Options()
-    options.add_argument("--headless=new")
-    options.add_argument("--disable-gpu")
+    
+    # Updated Chrome options for Render
     options.add_argument("--no-sandbox")
+    options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    driver.get("https://delhihighcourt.nic.in/app/get-case-type-status")
+    
+    # For Render, we need to specify the Chrome binary location
+    options.binary_location = os.getenv('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
 
     try:
+        # Initialize ChromeDriver
+        driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install()), 
+            options=options
+        )
+        
+        driver.get("https://delhihighcourt.nic.in/app/get-case-type-status")
+
         # Step 1: Solve CAPTCHA
         captcha_element = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "//span[contains(@class,'captcha') or contains(@id,'captcha')]"))
@@ -90,11 +111,11 @@ def fetch_case_details(case_type, case_number, filing_year):
         table = soup.find("table")
         
         if not table:
-            raise Exception("No result found")
+            raise Exception("No result table found")
 
         rows = table.find_all("tr")
         if len(rows) < 2:
-            raise Exception("No data found")
+            raise Exception("No data rows found")
 
         tds = rows[1].find_all("td")
 
@@ -148,22 +169,6 @@ def fetch_case_details(case_type, case_number, filing_year):
             except Exception as e:
                 print(f"Orders page error: {str(e)}")
 
-        # Method 3: Final fallback - check all links on page
-        if not most_recent_pdf:
-            try:
-                all_links = driver.find_elements(By.TAG_NAME, "a")
-                for link in all_links:
-                    try:
-                        href = link.get_attribute("href")
-                        if href and ".pdf" in href.lower():
-                            most_recent_pdf = href if href.startswith("http") else urljoin(BASE_URL, href)
-                            print(f"Found PDF in page links: {most_recent_pdf}")
-                            break
-                    except:
-                        continue
-            except Exception as e:
-                print(f"Final PDF search error: {str(e)}")
-
         # Prepare result
         result_data = {
             "parties": parties,
@@ -175,13 +180,14 @@ def fetch_case_details(case_type, case_number, filing_year):
         # Save to database
         save_query(case_type, case_number, filing_year, raw_response)
 
-        return result_data, " Case details fetched successfully!"
+        return result_data, "✅ Case details fetched successfully!"
 
     except Exception as e:
-        return None, f" Error: {str(e)}"
+        return None, f"❌ Error: {str(e)}"
     
     finally:
-        driver.quit()
+        if 'driver' in locals():
+            driver.quit()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -198,4 +204,5 @@ def index():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
