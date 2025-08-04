@@ -1,40 +1,32 @@
-# Delhi High Court Case Fetcher
+# 🏛️ Delhi High Court Case Status Fetcher
 
-## Project Overview
-This project fetches case status from the **Delhi High Court** website.
+A Python + Flask-based web application to **fetch Delhi High Court case details** automatically.  
+It programmatically retrieves:
 
-### Features
-- Fetch case details programmatically.
-- Extracts:
-  - Parties’ names
-  - Filing & next-hearing dates
-  - Most recent Order/Judgment PDF link
-- CAPTCHA auto-solved (numeric) using headless Selenium.
-- Logs raw responses to MySQL database.
+- 👥 **Parties’ Names**  
+- 📅 **Filing Date & Next Hearing Date**  
+- 📄 **Most Recent Order/Judgment PDF Link**  
+- 💾 **Stores query history & raw HTML in MySQL database**  
 
-### Setup Instructions
-1. Clone this repository
-2. Install requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the app locally:
-   ```bash
-   python app.py
-   ```
+---
 
-### Deployment (Render)
-1. Push this repo to GitHub.
-2. Connect to Render.
-3. Add a **Web Service**, set `Start Command` to:
-   ```bash
-   gunicorn app:app
-   ```
-4. Done!
+## ⚖️ Court Chosen
 
-### CAPTCHA Strategy
-- The Delhi High Court site uses a **numeric CAPTCHA** which is auto-fetched.
-- No external service is required.
+**Delhi High Court – Case Status (Case Type Wise)**  
+🔗 [https://delhihighcourt.nic.in/app/get-case-type-status](https://delhihighcourt.nic.in/app/get-case-type-status)
 
-### License
-MIT License
+---
+
+## ✨ Features
+
+- Automated form filling with **Selenium WebDriver**  
+- **Numeric CAPTCHA** auto-handling (programmatically fetched)  
+- Fetches **most recent order PDF** from Orders page  
+- Saves all queries in **MySQL database**  
+- Simple **Flask web interface**  
+- Deployment-ready with `Dockerfile` and `requirements.txt`  
+
+---
+
+## 📂 File Structure
+
