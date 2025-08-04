@@ -81,6 +81,20 @@ If the Delhi High Court changes the CAPTCHA to **image-based**, the following st
 - Or manual token input through the web form  
 
 ---
+##  Sample `.env` Variables
+
+Create a `.env` file in the root folder with the following variables:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=court_data
+
+FLASK_ENV=development
+SECRET_KEY=secret123
+```
+---
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
