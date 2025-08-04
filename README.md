@@ -48,11 +48,11 @@ pip install -r requirements.txt
 ```
 ## 📦 Key Dependencies
 
--Flask – Web framework for UI and routing
--Selenium – Browser automation for fetching data
--WebDriver Manager – Automatically manages ChromeDriver
--BeautifulSoup4 – HTML parsing to extract case details
--MySQL Connector – Save query logs in MySQL database
+- Flask – Web framework for UI and routing
+- Selenium – Browser automation for fetching data
+- WebDriver Manager – Automatically manages ChromeDriver
+- BeautifulSoup4 – HTML parsing to extract case details
+- MySQL Connector – Save query logs in MySQL database
 
 ---
 ## 📂 File Structure
