@@ -55,6 +55,32 @@ pip install -r requirements.txt
 - MySQL Connector – Save query logs in MySQL database
 
 ---
+---
+## 🔒 CAPTCHA Strategy
+
+- The **Delhi High Court** case status page uses a **numeric text CAPTCHA**.
+- Our script automatically handles this by:
+  1. **Locating** the `<span>` element with the numeric CAPTCHA using:
+     ```python
+     captcha_element = WebDriverWait(driver, 20).until(
+         EC.presence_of_element_located((By.XPATH, "//span[contains(@class,'captcha') or contains(@id,'captcha')]"))
+     )
+     captcha_text = captcha_element.text.strip()
+     ```
+  2. **Extracting the numeric CAPTCHA text** directly from the DOM.
+  3. **Filling it programmatically** into the form using:
+     ```python
+     driver.find_element(By.XPATH, "//input[contains(@id,'captcha')]").send_keys(captcha_text)
+     ```
+- **No manual input or external OCR service is needed**, since the CAPTCHA is already **plain text**.
+
+
+**Note:**  
+If the Delhi High Court changes the CAPTCHA to **image-based**, the following strategies can be used:  
+- OCR with **Tesseract** to extract text from the image  
+- Or manual token input through the web form  
+
+---
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
