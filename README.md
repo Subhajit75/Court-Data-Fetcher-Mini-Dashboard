@@ -122,7 +122,7 @@ This project includes **basic unit tests** using **pytest** to validate core fun
 3. ***Test File Name** *test_app.py*
 
 
-### 📝 Sample Test (tests/test_app.py)
+## 📝 Sample Test (tests/test_app.py)
 ```python
 
 import pytest
