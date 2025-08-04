@@ -216,7 +216,7 @@ Here is the **Result Page showing case details and PDF download**:
 ## 🎥 Demo
 
 <p align="center">
-  <img src="demo.gif" alt="Delhi High Court Case Status Demo" width="80%">
+  <img src="court_data_fetcher/static/images/Court-Data Fetcher & Mini-Dashboard.gif" alt="Court-Data Fetcher & Mini-Dashboard" width="80%">
 </p>
 ---
 
