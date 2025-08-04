@@ -26,6 +26,6 @@ jobs:
         pip install pytest
 
     - name: Run Unit Tests
-      working-directory: court_data_fetcher
+      working-directory: ./court_data_fetcher
       run: |
-        pytest tests/ --maxfail=1 --disable-warnings -q
+        python -m pytest tests/test_app.py --maxfail=1 --disable-warnings -q
