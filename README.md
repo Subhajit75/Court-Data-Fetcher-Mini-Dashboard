@@ -49,7 +49,25 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-**4️⃣ Run the Flask App**
+
+**4️⃣ Setup MySQL Database**
+
+Create a Database and Table
+```sql
+CREATE DATABASE court_data;
+USE court_data;
+
+CREATE TABLE queries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    case_type VARCHAR(50),
+    case_number VARCHAR(50),
+    filing_year VARCHAR(10),
+    timestamp DATETIME,
+    raw_response LONGTEXT
+);
+```
+
+**5️⃣ Run the Flask App**
 ```bash
 python app.py
 ```
@@ -137,11 +155,14 @@ This project includes **basic unit tests** using **pytest** to validate core fun
 pytest -v
 ```
     
-    
-
 
 ---
+## 🔄 CI Workflow
 
+- GitHub Actions is set up for automated testing.
+- **File:** ***.github/workflows/python-ci.yml***
+
+---
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
@@ -172,11 +193,23 @@ Court-Data-Fetcher-Mini-Dashboard/
 ~~~
 
 
+---
+## 🎨 User Interface
 
+Here is the **Case Search Form (Home Page)**:
 
-
+![User Interface](static/images/ui_home.png)
 
 ---
+
+## 📊 Result Interface
+
+Here is the **Result Page showing case details and PDF download**:
+
+![Result Interface](static/images/ui_result.png)
+
+---
+
 ## 🎥 Demo
 
 <p align="center">
