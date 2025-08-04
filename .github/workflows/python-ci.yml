@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: "3.10"
 
     - name: Install dependencies
       run: |
@@ -25,4 +25,7 @@ jobs:
         pip install -r court_data_fetcher/requirements.txt
         pip install pytest
 
-    - name: Run tests
+    - name: Run unit tests
+      run: |
+        cd court_data_fetcher
+        pytest tests/ --maxfail=1 --disable-warnings -q
