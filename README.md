@@ -2,6 +2,10 @@
 
 ![Python CI](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml/badge.svg)
 
+
+[![Python CI](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml)
+
+
 A Python + Flask-based web application to fetch **Court-Data Fetcher & Mini-Dashboard** (Delhi High Court case details).  
 It programmatically retrieves:
 
