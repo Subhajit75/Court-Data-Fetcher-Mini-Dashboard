@@ -145,6 +145,9 @@ pytest -v
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
+├── .github/
+│ └── workflows/
+│ └── python-ci.yml # CI workflow for GitHub Actions
 │
 ├── court_data_fetcher/
 │ ├── static/
