@@ -16,7 +16,6 @@ It programmatically retrieves:
 🔗 [https://delhihighcourt.nic.in/app/get-case-type-status](https://delhihighcourt.nic.in/app/get-case-type-status)
 
 ---
----
 ## ⚙️ Setup Steps
 
 Follow these steps to run the this project locally:
@@ -54,7 +53,6 @@ pip install -r requirements.txt
 - BeautifulSoup4 – HTML parsing to extract case details
 - MySQL Connector – Save query logs in MySQL database
 
----
 ---
 ## 🔒 CAPTCHA Strategy
 
@@ -95,6 +93,27 @@ FLASK_ENV=development
 SECRET_KEY=secret123
 ```
 ---
+
+## 🔄 Pagination for Multiple Orders
+
+Some cases have multiple pages of **Orders** in the Delhi High Court portal.  
+Our scraper automatically handles pagination to ensure the **latest order PDF** is always captured.
+
+### Steps:
+
+1. After navigating to the **Orders** page:
+   - Detect the pagination elements (e.g., `Next` or numbered pages).
+   - Loop through all pages using Selenium.
+
+2. On each page:
+   - Parse all **Case No / Order Link** rows.
+   - Collect the **Date of Order** and corresponding **PDF link**.
+
+3. After scanning all pages:
+   - Compare dates and **select the most recent PDF**.
+
+---
+
 ## 📂 File Structure
 ~~~
 Court-Data-Fetcher-Mini-Dashboard/
