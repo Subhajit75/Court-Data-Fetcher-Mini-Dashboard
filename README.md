@@ -17,6 +17,21 @@ It programmatically retrieves:
 
 ---
 
+## ⚙️ Setup Steps
+
+Follow these steps to run the this project locally:
+
+---
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/Court-Data-Fetcher-Mini-Dashboard.git
+cd Court-Data-Fetcher-Mini-Dashboard/court_data_fetcher
+
+
+
+
 
 ## 📂 File Structure
 ~~~
@@ -38,6 +53,39 @@ Court-Data-Fetcher-Mini-Dashboard/
 │ └── Dockerfile # Optional containerization
 │
 ├── LICENSE # MIT License
+└── README.md # Project Documentation
 
 ~~~
-└── README.md # Project Documentation
+
+
+
+
+
+
+
+
+
+## 📫 Contact
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-subhajitghosh7590%40gmail.com-red?style=flat&logo=gmail)](mailto:subhajitghosh7590@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Subhajit_Ghosh-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/subhajit-ghosh-75s90g/)
+[![GitHub](https://img.shields.io/badge/GitHub-Subhajit75-black?style=flat&logo=github)](https://github.com/Subhajit75)
+
+</div>
+
+## 📜 License
+
+MIT License © 2025 [Subhajit Ghosh](https://www.linkedin.com/in/subhajit-ghosh-75s90g/)
+
+---
+
+<div align="center">
+  
+Made by [Subhajit Ghosh](https://www.linkedin.com/in/subhajit-ghosh-75s90g/)  
+
+</div>
+
+
+
