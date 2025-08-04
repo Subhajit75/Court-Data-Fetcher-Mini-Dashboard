@@ -3,7 +3,5 @@ requests==2.32.3
 beautifulsoup4==4.12.3
 selenium==4.25.0
 mysql-connector-python==9.0.0
-selenium
-gunicorn
-webdriver-manager
-mysql-connector-python
+gunicorn==23.0.0
+webdriver-manager==4.0.2
