@@ -5,19 +5,22 @@ from urllib.parse import urljoin
 from flask import Flask, render_template, request
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import chromedriver_autoinstaller
+from webdriver_manager.chrome import ChromeDriverManager
 import mysql.connector
 
 BASE_URL = "https://delhihighcourt.nic.in/"
+
 app = Flask(__name__)
 
 # --------------------- Database Configuration ---------------------
 def get_db_config():
     if os.getenv('RENDER', '').lower() == 'true':
+        # Render PostgreSQL (if you use MySQL, set env accordingly)
         return {
             "host": os.getenv('DB_HOST'),
             "user": os.getenv('DB_USER'),
@@ -26,6 +29,7 @@ def get_db_config():
             "port": int(os.getenv('DB_PORT', 3306))
         }
     else:
+        # Local MySQL
         return {
             "host": "localhost",
             "user": "root",
@@ -53,26 +57,27 @@ def init_db():
         """)
         conn.commit()
     except Exception as e:
-        print(f" DB init error: {e}")
+        print(f"❌ DB init error: {e}")
     finally:
         if 'conn' in locals() and conn.is_connected():
             conn.close()
 
 # --------------------- ChromeDriver Setup ---------------------
 def setup_driver():
-    # Auto-install compatible ChromeDriver
-    chromedriver_autoinstaller.install()
-
     chrome_options = Options()
-    chrome_options.add_argument("--headless=new")
     chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--headless=new")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--disable-gpu")
 
-    # Render uses pre-installed Chromium
-    chrome_options.binary_location = "/usr/bin/chromium"
+    # Render container chrome binary
+    if os.getenv('RENDER'):
+        chrome_options.binary_location = os.getenv('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
 
-    return webdriver.Chrome(options=chrome_options)
+    return webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=chrome_options
+    )
 
 # --------------------- Case Fetching Logic ---------------------
 def fetch_case_details(case_type, case_number, filing_year):
@@ -99,7 +104,7 @@ def fetch_case_details(case_type, case_number, filing_year):
         tds = soup.select('table tr:nth-child(2) td')
 
         if len(tds) < 4:
-            return None, " Case not found or invalid details"
+            return None, "❌ Case not found or invalid details"
 
         # Parties & Dates
         parties = tds[2].get_text(" ", strip=True).split("VS.")[0].strip()
@@ -119,7 +124,7 @@ def fetch_case_details(case_type, case_number, filing_year):
         return result, None
 
     except Exception as e:
-        return None, f" Error: {str(e)}"
+        return None, f"❌ Error: {str(e)}"
     finally:
         if driver:
             driver.quit()
@@ -155,7 +160,7 @@ def save_query(case_type, case_number, filing_year, raw_response):
         """, (case_type, case_number, filing_year, datetime.now(), raw_response))
         conn.commit()
     except Exception as e:
-        print(f" Save query error: {e}")
+        print(f"❌ Save query error: {e}")
     finally:
         if 'conn' in locals() and conn.is_connected():
             conn.close()
@@ -169,7 +174,7 @@ def index():
         filing_year = request.form.get("filing_year")
 
         if not all([case_type, case_number, filing_year]):
-            return render_template("result.html", error=" All fields are required")
+            return render_template("result.html", error="❌ All fields are required")
 
         result, error = fetch_case_details(case_type, case_number, filing_year)
         return render_template("result.html", result=result, error=error)
