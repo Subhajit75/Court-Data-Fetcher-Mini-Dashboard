@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from scraper import fetch_case_details
+from court_data_fetcher.scraper import fetch_case_details
+
 import config
 
 app = Flask(__name__)
