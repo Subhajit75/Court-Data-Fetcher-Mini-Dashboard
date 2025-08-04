@@ -15,6 +15,7 @@ def log_query(case_type, case_number, filing_year, raw_response):
         conn.commit()
         cursor.close()
         conn.close()
-        print("✅ Query logged to MySQL successfully.")
+        print(" Query logged to MySQL successfully.")
     except Exception as e:
-        print("❌ Database insert error:", e)
+        print(" Database insert error:", e)
+
