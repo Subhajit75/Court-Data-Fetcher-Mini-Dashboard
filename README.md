@@ -21,7 +21,6 @@ It programmatically retrieves:
 
 Follow these steps to run the this project locally:
 
----
 
 ### 1️⃣ Clone the Repository
 
