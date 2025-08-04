@@ -219,6 +219,7 @@ Here is the **Result Page showing case details and PDF download**:
   <img src="court_data_fetcher/static/images/Court-Data Fetcher & Mini-Dashboard.gif" alt="Court-Data Fetcher & Mini-Dashboard" width="80%">
 </p>
 
+
 ---
 
 ## 📫 Contact
