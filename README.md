@@ -29,7 +29,30 @@ Follow these steps to run the this project locally:
 cd Court-Data-Fetcher-Mini-Dashboard/court_data_fetcher
    ```
 
+### 2️⃣ Create a Virtual Environment
 
+**Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+   ```
+ **Linux / Mac:**
+ ```bash
+python3 -m venv venv
+source venv/bin/activate
+  ```
+**3️⃣ Install Project Dependencies**
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+## 📦 Key Dependencies
+
+-Flask – Web framework for UI and routing
+-Selenium – Browser automation for fetching data
+-WebDriver Manager – Automatically manages ChromeDriver
+-BeautifulSoup4 – HTML parsing to extract case details
+-MySQL Connector – Save query logs in MySQL database
 
 ---
 ## 📂 File Structure
