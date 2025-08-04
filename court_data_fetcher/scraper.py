@@ -24,7 +24,7 @@ DB_CONFIG = {
 }
 
 app = Flask(__name__)
-# --------------------- Save Query --------------------------------
+# --------------------- Save Query to Database --------------------------------
 def save_query(case_type, case_number, filing_year, raw_response):
     """Save query details to MySQL database"""
     try:
@@ -205,3 +205,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
