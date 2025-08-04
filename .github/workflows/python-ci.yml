@@ -24,7 +24,12 @@ jobs:
         pip install -r court_data_fetcher/requirements.txt
         pip install pytest
 
+    - name: List directory structure (debug)
+      run: |
+        ls -R
+
     - name: Run Unit Tests
       run: |
         cd court_data_fetcher
+        ls -l tests/  # Verify test file exists
         python -m pytest tests/test_app.py --maxfail=1 --disable-warnings -q
