@@ -198,7 +198,7 @@ Court-Data-Fetcher-Mini-Dashboard/
 
 Here is the **Case Search Form (Home Page)**:
 
-![User Interface](static/images/ui_home.png)
+![User Interface](court_data_fetcher/static/images/ui_home.png)
 
 ---
 
@@ -206,7 +206,7 @@ Here is the **Case Search Form (Home Page)**:
 
 Here is the **Result Page showing case details and PDF download**:
 
-![Result Interface](static/images/ui_result.png)
+![Result Interface](court_data_fetcher/static/images/ui_result.png)
 
 ---
 
