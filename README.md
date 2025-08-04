@@ -1,7 +1,5 @@
 # 🏛️ Court-Data Fetcher & Mini-Dashboard
 
-![Python CI](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml/badge.svg)
-
 
 [![Python CI](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml)
 
