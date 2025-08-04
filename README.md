@@ -21,14 +21,14 @@ It programmatically retrieves:
 Follow these steps to run the this project locally:
 
 
-### 1️⃣ Clone the Repository
+**1️⃣ Clone the Repository
 
 ```bash
    git clone https://github.com/your-username/Court-Data-Fetcher-Mini-Dashboard.git
 cd Court-Data-Fetcher-Mini-Dashboard/court_data_fetcher
    ```
 
-### 2️⃣ Create a Virtual Environment
+**2️⃣ Create a Virtual Environment
 
 **Windows:**
 ```bash
@@ -122,7 +122,7 @@ This project includes **basic unit tests** using **pytest** to validate core fun
 3. ***Test File Name** *test_app.py*
 
 
-## 📝 Sample Test (tests/test_app.py)
+**📝 Sample Test (tests/test_app.py)
 ```python
 
 import pytest
@@ -175,7 +175,7 @@ def test_fetch_case_details_structure(monkeypatch):
     assert "pdf_link" in result
     assert ".pdf" in result["pdf_link"].lower()
 ```
-## ▶️ Run the Tests
+**▶️ Run the Tests
 ```brash
 pytest -v
 ```
