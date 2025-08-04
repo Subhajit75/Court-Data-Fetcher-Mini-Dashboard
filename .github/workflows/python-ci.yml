@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -26,6 +25,6 @@ jobs:
         pip install pytest
 
     - name: Run Unit Tests
-      working-directory: ./court_data_fetcher
       run: |
+        cd court_data_fetcher
         python -m pytest tests/test_app.py --maxfail=1 --disable-warnings -q
