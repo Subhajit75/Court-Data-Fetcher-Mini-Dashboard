@@ -47,6 +47,13 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
+**4️⃣ Run the Flask App**
+```bash
+python app.py
+```
+- Then open: http://127.0.0.1:5000
+
+
 ## 📦 Key Dependencies
 
 - Flask – Web framework for UI and routing
