@@ -1,1 +1,1 @@
-web: gunicorn court_data_fetcher.app:app
+web: gunicorn court_data_fetcher.app:app --timeout 120
