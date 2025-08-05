@@ -197,7 +197,6 @@ Court-Data-Fetcher-Mini-Dashboard/
 │ └── Dockerfile                  # Optional containerization
 │
 ├── Demo_Video_Link_of_Task_1.txt # screen-capture showing end-to-end flow
-│ 
 ├── LICENSE                      # MIT License
 └── README.md                     # Project Documentation
 
