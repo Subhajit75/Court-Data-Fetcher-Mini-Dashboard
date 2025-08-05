@@ -10,7 +10,7 @@ It programmatically retrieves:
 - 👥 **Parties’ Names**  
 - 📅 **Filing Date & Next Hearing Date**  
 - 📄 **Order/Judgment PDF Link**  
-- 💾 **Stores query history & raw HTML in MySQL database**  
+- 💾 **Stores query history & raw response in MySQL database**  
 
 ---
 
