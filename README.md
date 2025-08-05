@@ -169,8 +169,8 @@ pytest -v
 Court-Data-Fetcher-Mini-Dashboard/
 ├── .github/
 │ └── workflows/
-│  └── python-ci.yml # CI workflow for GitHub Actions
-│
+│ │ └── python-ci.yml # CI workflow for GitHub Actions
+│ │
 ├── court_data_fetcher/
 │ ├── static/
 │ │ ├──images/
