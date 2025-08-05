@@ -217,8 +217,8 @@ Here is the **Result Page showing case details and PDF download**:
 
 ## 🎥 Demo Video
 
-Watch the step-by-step video demo on YouTube:  
-[v_utOk5ip4Y – Demo on Case Fetcher](https://youtu.be/v_utOk5ip4Y)
+Watch the step-by-step screen-capture showing end-to-end flow on YouTube:  
+[Court Data Fetcher & Mini Dashboard by Subhajit Ghosh](https://youtu.be/v_utOk5ip4Y)
 
 **Short Demo**
 <p align="center">
