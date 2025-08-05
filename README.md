@@ -3,14 +3,18 @@
 
 [![Python CI](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Subhajit75/Court-Data-Fetcher-Mini-Dashboard/actions/workflows/python-ci.yml)
 
+**Court-Data Fetcher & Mini-Dashboard** is a Python + Flask-based web application that allows users to fetch **Delhi High Court** case details by providing the Case Type, Case Number, and Filing Year.  
 
-A Python + Flask-based web application to fetch **Court-Data Fetcher & Mini-Dashboard** (Delhi High Court case details).  
-It programmatically retrieves:
+The app:
 
-- 👥 **Parties’ Names**  
-- 📅 **Filing Date & Next Hearing Date**  
-- 📄 **Order/Judgment PDF Link**  
-- 💾 **Stores query history & raw response in MySQL database**  
+- Provides a simple web UI for input
+- Programmatically fetches case details from the **Delhi High Court public portal**
+- Auto-handles numeric CAPTCHA
+- Extracts **Parties’ Names**, **Filing & Next Hearing Dates**, and the **Most Recent Order/Judgment PDF**
+- Stores every query and raw HTML response in **MySQL** for auditing
+- Displays results in a clean dashboard with direct PDF download links
+- Handles invalid inputs and site downtime gracefully
+
 
 ---
 
