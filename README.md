@@ -215,8 +215,12 @@ Here is the **Result Page showing case details and PDF download**:
 
 ---
 
-## 🎥 Demo
+## 🎥 Demo Video
 
+Watch the step-by-step video demo on YouTube:  
+[v_utOk5ip4Y – Demo on Case Fetcher](https://youtu.be/v_utOk5ip4Y)
+
+**Short Demo**
 <p align="center">
   <img src="court_data_fetcher/static/images/Court-Data Fetcher & Mini-Dashboard.gif" alt="Court-Data Fetcher & Mini-Dashboard" width="80%">
 </p>
