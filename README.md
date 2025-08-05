@@ -173,31 +173,33 @@ pytest -v
 Court-Data-Fetcher-Mini-Dashboard/
 ├── .github/
 │ └── workflows/
-│  └── python-ci.yml # CI workflow for GitHub Actions
+│  └── python-ci.yml       # CI workflow for GitHub Actions
 │ 
 ├── court_data_fetcher/
 │ ├── static/
 │ │ ├──images/
 │ │ │ ├──Court-Data Fetcher & Mini-Dashboard.gif 
-│ │ │ ├──ui_home.png #User Interface
-│ │ │ └──ui_result.png #Result Interface
-│ │ └── style.css # Custom styling
+│ │ │ ├──ui_home.png             #User Interface
+│ │ │ └──ui_result.png            #Result Interface
+│ │ └── style.css                # Custom styling
 │ │
 │ ├── templates/
-│ │ ├── index.html # Input form (Case Type, Number, Year)
-│ │ └── result.html # Result display page
+│ │ ├── index.html                 # Input form (Case Type, Number, Year)
+│ │ └── result.html                # Result display page
 │ ├── tests/
-│ │ └── test_app.py # Simple pytest unit test
+│ │ └── test_app.py                # Simple pytest unit test
 │ │
-│ ├── app.py # Flask main app
-│ ├── scraper.py # Core Selenium scraping logic
-│ ├── db.py # MySQL connection helper
-│ ├── config.py # DB credentials & app config
-│ ├── requirements.txt # Python dependencies
-│ └── Dockerfile # Optional containerization
+│ ├── app.py                       # Flask main app
+│ ├── scraper.py                   # Core Selenium scraping logic
+│ ├── db.py                         # MySQL connection helper
+│ ├── config.py                   # DB credentials & app config
+│ ├── requirements.txt             # Python dependencies
+│ └── Dockerfile                  # Optional containerization
 │
-├── LICENSE # MIT License
-└── README.md # Project Documentation
+├── Demo_Video_Link_of_Task_1.txt # screen-capture showing end-to-end flow
+│ 
+├── LICENSE                      # MIT License
+└── README.md                     # Project Documentation
 
 ~~~
 
