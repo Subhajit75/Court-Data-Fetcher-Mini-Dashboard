@@ -88,7 +88,7 @@ python app.py
 
 ---
 ## 🔒 CAPTCHA Strategy
-
+ 
 - The **Delhi High Court** case status page uses a **numeric text CAPTCHA**.
 - Our script automatically handles this by:
   1. **Locating** the `<span>` element with the numeric CAPTCHA using:
@@ -169,7 +169,7 @@ pytest -v
 
 ---
 ## 📂 File Structure
-~~~
+```
 Court-Data-Fetcher-Mini-Dashboard/
 ├── .github/
 │ └── workflows/
@@ -199,9 +199,7 @@ Court-Data-Fetcher-Mini-Dashboard/
 ├── Demo_Video_Link_of_Task_1.txt # screen-capture showing end-to-end flow
 ├── LICENSE                      # MIT License
 └── README.md                     # Project Documentation
-
-~~~
-
+```
 
 ---
 ## 🎨 User Interface
