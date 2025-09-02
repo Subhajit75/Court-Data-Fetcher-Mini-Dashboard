@@ -14,7 +14,7 @@ from urllib.parse import urljoin
 
 BASE_URL = "https://delhihighcourt.nic.in/"
 
-# --------------------- Database Configuration ---------------------
+# --------------------- Database Configuration ----------------------
 # MySQL Configuration
 DB_CONFIG = {
     "host": "DB_HOST",
@@ -24,7 +24,7 @@ DB_CONFIG = {
 }
 
 app = Flask(__name__)
-# --------------------- Save Query to Database --------------------------------
+# --------------------- Save Query to Database ---------------------------------
 def save_query(case_type, case_number, filing_year, raw_response):
     """Save query details to MySQL database"""
     try:
@@ -44,7 +44,7 @@ def save_query(case_type, case_number, filing_year, raw_response):
     except Exception as e:
         print(" MySQL Insert Error:", e)
 
-# --------------------- Driver Setup ---------------------
+# --------------------- Driver Setup -----------------------
 def fetch_case_details(case_type, case_number, filing_year):
     """Fetch case details including most recent PDF from Delhi High Court website"""
     options = Options()
@@ -115,7 +115,7 @@ def fetch_case_details(case_type, case_number, filing_year):
                 else:
                     next_hearing = part
 
-# --------------------- PDF Extraction ---------------------
+# --------------------- PDF Extraction ------------------------
         # Step 4: Enhanced PDF Extraction
         most_recent_pdf = None
         
@@ -205,4 +205,5 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
